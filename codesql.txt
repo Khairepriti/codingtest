@@ -1,0 +1,56 @@
+SELECT * FROM db1.employees;
+select * from employees;
+
+select eno,salary from employees;
+
+select avg(salary) from employees;
+
+select count(*) from employees;
+SELECT DISTINCT empname FROM employees;
+
+select salary from employee group by empname ;
+
+
+select salary from employees where salary>120000;
+select * from employees order by empname desc;
+select* from employee1 where empname ='AMIT'in(select * from employees where salary > 50000);
+
+SELECT student.name, student.id, record.class, record.city
+FROM student, record
+WHERE student.city = record.city;
+
+SELECT student.name, record.id, record.city
+FROM student, record
+WHERE Student.id < Record.id ;
+
+
+SELECT Student.NAME, Student.AGE, StudentCourse.COURSE_ID
+FROM Student
+CROSS JOIN StudentCourse;
+
+
+SELECT * FROM table_A 
+FULL OUTER JOIN table_B 
+ON table_A.A=table_B.A;
+
+select s.name, s.age
+from sailors s, reserves r, boats b
+where s.id = r.sId and r.bId = b.id and b.color = 'red'
+order by s.age;
+
+select s.name
+from sailors s, reserves r
+where s.id = r.sId;
+
+
+SELECT S1.sname
+FROM Sailors S1, Reserves R1, Boats B1,
+ Reserves R2, Boats B2
+WHERE S1.sid=R1.sid AND R1.bid=B1.bid
+ AND S1.sid=R2.sid AND R2.bid=B2.bid
+ AND B1.color=`red’ AND B2.color=`green’ ;
+
+
+select s.sid,s.sname
+from sailors s,boats b,reserves r
+where s.sid=r.sid and b.bid=r.bid and s.age>20 and b.color!='red';
